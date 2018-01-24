@@ -34,12 +34,14 @@ public class Main {
     
     public static void main(String[] args) throws Exception {
         if (args.length == 0 || (args.length == 1 && args[0].equals("--help"))) {
-            System.out.println("Usage: convert <dest> [<catalog>]");
+            System.out.println("Usage: convert <dest> [<catalog>] [<dev_gitref>] [<staging_gitref>] [<prod_gitref>]");
             System.out.println("       convert --help");
             System.out.println();
-            System.out.println("  dest    - Destination folder (will be created if necessary)");
-            System.out.println("  catalog - Either a GitHub url to a booster catalog or");
-            System.out.println("            a file path to a directory of Git bundles.");
+            System.out.println("  dest           - Destination folder (will be created if necessary)");
+            System.out.println("  catalog        - Either a GitHub url to a booster catalog or a file path to a directory of Git bundles.");
+            System.out.println("  dev_gitref     - The gitref to use for the base booster .yaml files, the ones used in development (default 'master')");
+            System.out.println("  staging_gitref - The gitref for the boosters used in staging (default = don't use)");
+            System.out.println("  prod_gitref    - The gitref for the boosters used in production (default = don't use)");
             return;
         }
         
