@@ -62,8 +62,10 @@ object Main {
         val dest = Paths.get(destFolder);
         service.boosters.forEach {
             var targetFolder = dest.resolve(it.runtime!!.id)
-            it.version?.let {
-                targetFolder = targetFolder.resolve(it.id)
+            if (it.version != null) {
+                targetFolder = targetFolder.resolve(it.version!!.id)
+            } else {
+                targetFolder = targetFolder.resolve("default")
             }
             targetFolder = targetFolder.resolve(it.mission!!.id)
             Files.createDirectories(targetFolder)
