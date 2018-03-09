@@ -70,6 +70,8 @@ object Main {
             val yamlFile = File(targetFolder.toFile(), "booster.yaml")
             val writer = FileWriter(yamlFile)
             println("Writing booster yaml file: " + yamlFile)
+            it.metadata.remove("version")
+            it.metadata.remove("descriptor")
             yaml.dump(it.data, writer)
         }
 
